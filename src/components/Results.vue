@@ -9,20 +9,20 @@
 
     <ul>
       <li class="movie-item" v-for="result in results">
-        <img v-bind:src="'https://image.tmdb.org/t/p/w150_and_h225_bestv2'+result.poster_path" v-bind:alt="result.original_title + ' Poster'" class="poster-image"><!-- TODO: Combine base URL with poster_path value in data to make the image src URL (Hint: Use v-bind.). -->
-        <h2 class="title"><a v-bind:href="'https://www.themoviedb.org/movie/'+result.id">{{result.title}}</a></h2><!-- TODO: Combine base URL with movie ID value in data to make the link href URL (Hint: Use v-bind.). -->
+        <img v-bind:src="'https://image.tmdb.org/t/p/w150_and_h225_bestv2'+result.poster_path" v-bind:alt="result.original_title + ' Poster'" class="poster-image">
+        <h2 class="title"><a v-bind:href="'https://www.themoviedb.org/movie/'+result.id">{{result.title}}</a></h2>
         <div class="ratings">
-          <span v-if="result.vote_average > 8" class="rating-category critics-choice">Critic's Choice</span><!-- TODO: Use a conditional to determine if the vote_average is over 8. -->
-          <span v-else-if="(result.vote_average >= 7) && (result.vote_average <= 8)" class="rating-category well-liked">Well Liked</span><!-- TODO: Use a conditional to determine if the vote_average is between 7 and 8. -->
-          <span v-else class="rating-category stinker">Stinker</span><!-- TODO: Use a conditional to determine if the vote_average is under 7. -->
-          <span class="vote-average">{{result.vote_average}}</span> with <span class="vote-count">{{result.vote_count}}</span> votes <!-- TODO: Fill in the vote_average and vote_count values accordingly. -->
+          <span v-if="result.vote_average > 8" class="rating-category critics-choice">Critic's Choice</span>
+          <span v-else-if="(result.vote_average >= 7) && (result.vote_average <= 8)" class="rating-category well-liked">Well Liked</span>
+          <span v-else class="rating-category stinker">Stinker</span>
+          <span class="vote-average">{{result.vote_average}}</span> with <span class="vote-count">{{result.vote_count}}</span> votes 
         </div>
         <p class="overview">
           {{result.overview}}
         </p>
-        <p class="release-date">Original Release: {{result.release_date}}</p><!-- TODO: Fill in the release date from the data. -->
-        <ul class="genre-list"><!-- TODO: Use a loop to iterate through all of the genres for this movie. -->
-          <li v-for="genre in result.genres">{{genre}}</li><!-- TODO: Fill in the genre name from the data. -->
+        <p class="release-date">Original Release: {{result.release_date}}</p>
+        <ul class="genre-list">
+          <li v-for="genre in result.genres">{{genre}}</li>
         </ul>
       </li>
     </ul>
